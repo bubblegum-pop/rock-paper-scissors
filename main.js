@@ -19,8 +19,9 @@ function getHumanChoice() {
 }
 
 // Declare the players' score variables
-// Create two global variables: humanScore and computerScore
-// Initialize the variables with a value of 0
+
+let humanScore = 0;
+let computerScore = 0;
 
 // Write the logic to play a single round
 // Write a function that takes the human and computer choices as arguments, plays a single round, increments the round winner's score, and logs a winner announcement
