@@ -18,61 +18,72 @@ function getHumanChoice() {
     return prompt("What'll it be? Rock, Paper, or Scissors?");
 }
 
-// Declare the players' score variables
+// Play 5 rounds and reveal the winner
 
-let humanScore = 0;
-let computerScore = 0;
+function playGame() {
+    // Declare the players' score variables
 
-// Write the logic to play a single round
+    let humanScore = 0;
+    let computerScore = 0;
 
-function playRound(humanChoice, computerChoice) {
-    humanChoice = humanChoice.toLowerCase();
-    let winner;
+    // Play a single round
 
-    console.log(`You chose: ${humanChoice}`);
-    console.log(`The computer chose: ${computerChoice}`);
+    function playRound(humanChoice, computerChoice) {
+        humanChoice = humanChoice.toLowerCase();
+        let winner;
 
-    if (humanChoice == computerChoice) {
-        console.log("It's a tie - no points for anyone");
-    } else {
-        if (humanChoice == "rock") {
-            if (computerChoice == "paper") {
-                winner = "computer";
-            } else if (computerChoice == "scissors") {
-                winner = "human";
+        console.log(`You chose: ${humanChoice}`);
+        console.log(`The computer chose: ${computerChoice}`);
+
+        if (humanChoice == computerChoice) {
+            console.log("It's a tie - no points for anyone");
+        } else {
+            if (humanChoice == "rock") {
+                if (computerChoice == "paper") {
+                    winner = "computer";
+                } else if (computerChoice == "scissors") {
+                    winner = "human";
+                }
+            } else if (humanChoice == "paper") {
+                if (computerChoice == "rock") {
+                    winner = "human";
+                } else if (computerChoice == "scissors") {
+                    winner = "computer";
+                }
+            } else if (humanChoice == "scissors") {
+                if (computerChoice == "rock") {
+                    winner = "computer";
+                } else if (computerChoice == "paper") {
+                    winner = "human";
+                }
             }
-        } else if (humanChoice == "paper") {
-            if (computerChoice == "rock") {
-                winner = "human";
-            } else if (computerChoice == "scissors") {
-                winner = "computer";
-            }
-        } else if (humanChoice == "scissors") {
-            if (computerChoice == "rock") {
-                winner = "computer";
-            } else if (computerChoice == "paper") {
-                winner = "human";
-            }
-        }
 
-        if (winner == "human") {
-            humanScore++;
-            console.log("You win this round!");
-        } else if (winner == "computer") {
-            computerScore++;
-            console.log("You lose this round :(");
+            if (winner == "human") {
+                humanScore++;
+                console.log("You win this round - 1 point for you!");
+            } else if (winner == "computer") {
+                computerScore++;
+                console.log("You lose this round :( Computer gets 1 point");
+            }
         }
     }
+
+    // Execute the playRound function 5 times
+
+    for (let round = 1; round <= 5; round++) {
+        console.log(`ROUND ${round}`);
+        playRound(getHumanChoice(), getComputerChoice());
+    }
+
+    if (humanScore > computerScore) {
+        console.log("That's the game - and YOU WON! Congratulations.");
+    } else if (computerScore > humanScore) {
+        console.log("GAME OVER - You lost. Better luck next time.");
+    } else {
+        console.log("That's the game, and it looks like it's a tie. Let's play again!");
+    }
+
+    console.log(`Your score: ${humanScore} | Computer's score: ${computerScore}`);
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-playRound(humanSelection, computerSelection);
-
-// Write the logic to play the entire game
-// Your game will play 5 rounds
-// Write a function named playGame that calls playRound to play 5 rounds, keeps track of the scores, and declares a winner at the end
-// Move your playRound function and score variables so that they're declared inside of the new playGame function
-// Re-work your previous functions or create more helper functions as necessary. You may want to change the return values to something more useful
-// Feel free to use loops if you know how to use them
+playGame();
