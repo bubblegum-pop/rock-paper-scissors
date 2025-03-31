@@ -1,4 +1,4 @@
-// Return one of the valid choices at random
+// Return one of the valid choices at random as the computer's choice
 
 function getComputerChoice() {
     let randomNum = Math.random();
@@ -12,12 +12,11 @@ function getComputerChoice() {
     }
 }
 
-// Write the logic to get the human choice
-// Function getHumanChoice will return one of the choice based on user input
-// Hint: Use the "prompt" method
-// Test your function using console.log
+// Prompt for and return the human player's choice
 
-
+function getHumanChoice() {
+    return prompt("What'll it be? Rock, Paper, or Scissors?");
+}
 
 // Declare the players' score variables
 // Create two global variables: humanScore and computerScore
