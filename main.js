@@ -24,12 +24,51 @@ let humanScore = 0;
 let computerScore = 0;
 
 // Write the logic to play a single round
-// Write a function that takes the human and computer choices as arguments, plays a single round, increments the round winner's score, and logs a winner announcement
-// Create a new function named playRound
-// Define the two parameters: humanChoice and computerChoice
-// Make your function's humanChoice parameter case-insensitive
-// Have the function console.log a string value representing the round winner
-// Increment the humanScore or computerScore based on the winner
+
+function playRound(humanChoice, computerChoice) {
+    humanChoice = humanChoice.toLowerCase();
+    let winner;
+
+    console.log(`You chose: ${humanChoice}`);
+    console.log(`The computer chose: ${computerChoice}`);
+
+    if (humanChoice == computerChoice) {
+        console.log("It's a tie - no points for anyone");
+    } else {
+        if (humanChoice == "rock") {
+            if (computerChoice == "paper") {
+                winner = "computer";
+            } else if (computerChoice == "scissors") {
+                winner = "human";
+            }
+        } else if (humanChoice == "paper") {
+            if (computerChoice == "rock") {
+                winner = "human";
+            } else if (computerChoice == "scissors") {
+                winner = "computer";
+            }
+        } else if (humanChoice == "scissors") {
+            if (computerChoice == "rock") {
+                winner = "computer";
+            } else if (computerChoice == "paper") {
+                winner = "human";
+            }
+        }
+
+        if (winner == "human") {
+            humanScore++;
+            console.log("You win this round!");
+        } else if (winner == "computer") {
+            computerScore++;
+            console.log("You lose this round :(");
+        }
+    }
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
 
 // Write the logic to play the entire game
 // Your game will play 5 rounds
