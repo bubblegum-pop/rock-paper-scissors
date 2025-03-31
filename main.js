@@ -75,6 +75,8 @@ function playGame() {
         playRound(getHumanChoice(), getComputerChoice());
     }
 
+    // Log the final winner
+
     if (humanScore > computerScore) {
         console.log("That's the game - and YOU WON! Congratulations.");
     } else if (computerScore > humanScore) {
@@ -82,6 +84,8 @@ function playGame() {
     } else {
         console.log("That's the game, and it looks like it's a tie. Let's play again!");
     }
+
+    // Log the players' final scores
 
     console.log(`Your score: ${humanScore} | Computer's score: ${computerScore}`);
 }
