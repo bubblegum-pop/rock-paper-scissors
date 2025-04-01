@@ -1,5 +1,3 @@
-// Return one of the valid choices at random as the computer's choice
-
 function getComputerChoice() {
     let randomNum = Math.random();
 
@@ -12,22 +10,16 @@ function getComputerChoice() {
     }
 }
 
-// Prompt for and return the human player's choice
-
 function getHumanChoice() {
     return prompt("What'll it be? Rock, Paper, or Scissors?");
 }
 
-// Play 5 rounds and reveal the winner
-
 function playGame() {
-    // Declare the players' score variables
 
     let humanScore = 0;
     let computerScore = 0;
 
     // Play a single round
-
     function playRound(humanChoice, computerChoice) {
         humanChoice = humanChoice.toLowerCase();
         let winner;
@@ -69,14 +61,12 @@ function playGame() {
     }
 
     // Execute the playRound function 5 times
-
     for (let round = 1; round <= 5; round++) {
         console.log(`ROUND ${round}`);
         playRound(getHumanChoice(), getComputerChoice());
     }
 
     // Log the final winner
-
     if (humanScore > computerScore) {
         console.log("That's the game - and YOU WON! Congratulations.");
     } else if (computerScore > humanScore) {
@@ -86,7 +76,6 @@ function playGame() {
     }
 
     // Log the players' final scores
-
     console.log(`Your score: ${humanScore} | Computer's score: ${computerScore}`);
 }
 
