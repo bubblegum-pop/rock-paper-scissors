@@ -23,7 +23,7 @@ container.appendChild(scissorsBtn);
 
 const resultsDiv = document.createElement("div");
 const scoreboard = document.createElement("div");
-const winnerAnnouncement = document.createElement("h1");
+const winnerAnnouncement = document.createElement("h2");
 
 const humanScoreDisplay = document.createElement("h3");
 const computerScoreDisplay = document.createElement("h3");
@@ -55,7 +55,7 @@ function playRound(playerSelection) {
     let humanChoice = playerSelection.target.id;
     let computerChoice = getComputerChoice();
     let winner = "";
-
+    winnerAnnouncement.textContent = "";
 
     if (humanChoice == "rock") {
         if (computerChoice == "paper") {
@@ -85,4 +85,23 @@ function playRound(playerSelection) {
 
     humanScoreDisplay.textContent = `Your score: ${humanScore}`;
     computerScoreDisplay.textContent = `Computer score: ${computerScore}`;
+
+    function gameIsOver() {
+        if (humanScore === 5 || computerScore === 5) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    if (gameIsOver()) {
+        if (humanScore === 5) {
+            winnerAnnouncement.textContent = "Congratulations, You Won!!!";
+        } else if (computerScore === 5) {
+            winnerAnnouncement.textContent = "Game Over - You Lost";
+        }
+
+        humanScore = 0;
+        computerScore = 0;
+    }
 }
