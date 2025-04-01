@@ -22,7 +22,11 @@ container.appendChild(paperBtn);
 container.appendChild(scissorsBtn);
 
 const resultsDiv = document.createElement("div");
+const scoreboard = document.createElement("div");
+const winnerAnnouncement = document.createElement("h1");
 
+resultsDiv.appendChild(scoreboard);
+resultsDiv.appendChild(winnerAnnouncement);
 
 body.appendChild(resultsDiv);
 
