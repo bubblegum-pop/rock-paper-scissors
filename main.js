@@ -83,6 +83,7 @@ function playRound(playerSelection) {
             computerScore++;
         }
 
-        scoreboard.textContent
+        humanScoreDisplay.textContent = `Your score: ${humanScore}`;
+        computerScoreDisplay.textContent = `Computer score: ${computerScore}`;
     }
 }
