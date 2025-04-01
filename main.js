@@ -71,27 +71,7 @@ function playRound(playerSelection) {
 
         if (winner == "human") {
             humanScore++;
-            console.log("You won the round.");
         } else if (winner == "computer") {
             computerScore++;
-            console.log("You lost the round.");
         }
     }
-}
-
-function playGame() {
-
-    // Log the final winner
-    if (humanScore > computerScore) {
-        console.log("That's the game - and YOU WON! Congratulations.");
-    } else if (computerScore > humanScore) {
-        console.log("GAME OVER - You lost. Better luck next time.");
-    } else {
-        console.log("That's the game, and it looks like it's a tie. Let's play again!");
-    }
-
-    // Log the players' final scores
-    console.log(`Your score: ${humanScore} | Computer's score: ${computerScore}`);
-}
-
-// playGame();
