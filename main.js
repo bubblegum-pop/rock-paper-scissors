@@ -35,6 +35,9 @@ resultsDiv.appendChild(winnerAnnouncement);
 
 body.appendChild(resultsDiv);
 
+let humanScore = 0;
+let computerScore = 0;
+
 // Each choice is given an equal probability of being randomly selected
 function getComputerChoice() {
     let randomNum = Math.random();
@@ -51,8 +54,6 @@ function getComputerChoice() {
 function playRound(playerSelection) {
     let humanChoice = playerSelection.target.id;
     let computerChoice = getComputerChoice();
-    let humanScore = 0;
-    let computerScore = 0;
     let winner;
 
     if (humanChoice == computerChoice) {
