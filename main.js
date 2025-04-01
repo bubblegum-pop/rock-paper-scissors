@@ -25,6 +25,11 @@ const resultsDiv = document.createElement("div");
 const scoreboard = document.createElement("div");
 const winnerAnnouncement = document.createElement("h1");
 
+const humanScoreDisplay = document.createElement("h3");
+const computerScoreDisplay = document.createElement("h3");
+scoreboard.appendChild(humanScoreDisplay);
+scoreboard.appendChild(computerScoreDisplay);
+
 resultsDiv.appendChild(scoreboard);
 resultsDiv.appendChild(winnerAnnouncement);
 
@@ -51,7 +56,6 @@ function playRound(playerSelection) {
     let winner;
 
     if (humanChoice == computerChoice) {
-        console.log("It's a tie.");
     } else {
         if (humanChoice == "rock") {
             if (computerChoice == "paper") {
@@ -78,5 +82,7 @@ function playRound(playerSelection) {
         } else if (winner == "computer") {
             computerScore++;
         }
+
+        scoreboard.textContent
     }
 }
