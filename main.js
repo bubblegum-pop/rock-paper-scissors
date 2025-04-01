@@ -54,37 +54,35 @@ function getComputerChoice() {
 function playRound(playerSelection) {
     let humanChoice = playerSelection.target.id;
     let computerChoice = getComputerChoice();
-    let winner;
+    let winner = "";
 
-    if (humanChoice == computerChoice) {
-    } else {
-        if (humanChoice == "rock") {
-            if (computerChoice == "paper") {
-                winner = "computer";
-            } else if (computerChoice == "scissors") {
-                winner = "human";
-            }
-        } else if (humanChoice == "paper") {
-            if (computerChoice == "rock") {
-                winner = "human";
-            } else if (computerChoice == "scissors") {
-                winner = "computer";
-            }
-        } else if (humanChoice == "scissors") {
-            if (computerChoice == "rock") {
-                winner = "computer";
-            } else if (computerChoice == "paper") {
-                winner = "human";
-            }
+
+    if (humanChoice == "rock") {
+        if (computerChoice == "paper") {
+            winner = "computer";
+        } else if (computerChoice == "scissors") {
+            winner = "human";
         }
-
-        if (winner == "human") {
-            humanScore++;
-        } else if (winner == "computer") {
-            computerScore++;
+    } else if (humanChoice == "paper") {
+        if (computerChoice == "rock") {
+            winner = "human";
+        } else if (computerChoice == "scissors") {
+            winner = "computer";
         }
-
-        humanScoreDisplay.textContent = `Your score: ${humanScore}`;
-        computerScoreDisplay.textContent = `Computer score: ${computerScore}`;
+    } else if (humanChoice == "scissors") {
+        if (computerChoice == "rock") {
+            winner = "computer";
+        } else if (computerChoice == "paper") {
+            winner = "human";
+        }
     }
+
+    if (winner == "human") {
+        humanScore++;
+    } else if (winner == "computer") {
+        computerScore++;
+    }
+
+    humanScoreDisplay.textContent = `Your score: ${humanScore}`;
+    computerScoreDisplay.textContent = `Computer score: ${computerScore}`;
 }
