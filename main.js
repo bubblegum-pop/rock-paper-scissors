@@ -21,6 +21,11 @@ container.appendChild(rockBtn);
 container.appendChild(paperBtn);
 container.appendChild(scissorsBtn);
 
+const resultsDiv = document.createElement("div");
+
+
+body.appendChild(resultsDiv);
+
 // Each choice is given an equal probability of being randomly selected
 function getComputerChoice() {
     let randomNum = Math.random();
@@ -32,10 +37,6 @@ function getComputerChoice() {
     } else {
         return "scissors";
     }
-}
-
-function getHumanChoice() {
-    return prompt("Please make your selection.");
 }
 
 function playRound(playerSelection) {
@@ -79,8 +80,6 @@ function playRound(playerSelection) {
 }
 
 function playGame() {
-
-    playRound(getHumanChoice, getComputerChoice)
 
     // Log the final winner
     if (humanScore > computerScore) {
